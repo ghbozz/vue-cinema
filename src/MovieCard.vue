@@ -19,6 +19,7 @@
             <h1 class="subtitle">Synopsis</h1>
             <p>{{ movie.overview }}</p>
           </div>
+          <a @click="selectMovie">Learn more</a>
         </div>
       </div>
     </div>
@@ -37,6 +38,9 @@
     methods: {
       flip() {
         this.isActive = !this.isActive
+      },
+      selectMovie() {
+        this.$parent.selectMovie(this.movie.id)
       }
     },
     props: ['movie']
