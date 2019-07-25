@@ -1,12 +1,20 @@
 <template>
-  <div class="card column is-paddingless is-one-quarter">
-    <div class="flip" :class="{flipped: isActive}" @click="flip">
+  <div class="column is-one-quarter">
+    <div class="flip"
+         :class="{flipped: isActive}"
+         @click="flip"
+         >
       <div class="front">
-        <img :src="poster" alt="">
+        <img :src="poster" alt="" class="poster-img">
       </div>
       <div class="back">
-        <h1 class="movie-title">{{ movie.title }}</h1>
-        <p>{{ movie.overview }}</p>
+        <img :src="backdrop" alt="" class="backdrop-img">
+        <div class="inner-card-container">
+          <div class="synopsis">
+            <h1 class="subtitle">Synopsis</h1>
+            <p>{{ movie.overview }}</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -17,7 +25,8 @@
     data() {
       return {
         isActive: false,
-        poster: `https://image.tmdb.org/t/p/w500${this.movie.poster_path}`
+        poster: `https://image.tmdb.org/t/p/w500${this.movie.poster_path}`,
+        backdrop: `https://image.tmdb.org/t/p/w500${this.movie.backdrop_path}`
       }
     },
     methods: {
@@ -30,9 +39,16 @@
 </script>
 
 <style scoped>
-  img {
+  .poster-img {
     width: 100%;
     height: 100%;
+    border-radius: 10px;
+  }
+
+  .backdrop-img {
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    box-shadow: 0px 3px 5px rgba(20, 20, 20, 0.3);
   }
 
   .movie-title {
@@ -47,8 +63,11 @@
   }
 
   .flip {
+    cursor: pointer;
+    border-radius: 10px;
     position: relative;
     width: 100%;
+    height: 100%;
     transition: all 0.3s ease-out;
   }
 
@@ -63,17 +82,22 @@
     transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     transition-duration: .5s;
     transition-property: transform, opacity;
+    border-radius: 10px;
   }
   .flip > .front {
+    height: 100%;
     transform: rotateY(0deg);
+    box-shadow: 0px 3px 5px rgba(20, 20, 20, 0.3);
   }
   .flip > .back {
+    overflow: scroll;
     position: absolute;
     opacity: 0;
     top: 0px;
     left: 0px;
     width: 100%;
     height: 100%;
+    border-radius: 10px;
     transform: rotateY(-180deg);
   }
   .flipped > .front {
@@ -104,9 +128,9 @@
     width: inherit;
     background-size: cover !important;
     background-position: top !important;
-    height: 600px;
+    /*height: 600px;*/
     /*padding: 1em 2em;*/
-    background: #313131;
+    background: white;
     /*border-radius: 10px;*/
   }
   .flip > .front p,
@@ -114,5 +138,13 @@
     font-size: 0.9125rem;
     line-height: 160%;
     color: #999;
+  }
+
+  .inner-card-container {
+    padding: 30px;
+  }
+
+  .synopsis {
+    /*padding: 20px;*/
   }
 </style>

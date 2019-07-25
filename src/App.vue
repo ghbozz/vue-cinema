@@ -1,9 +1,11 @@
 <template>
   <div id="app">
     <banner></banner>
-    <div class="movies-list">
-      <div class="columns is-multiline">
-        <movie-card v-for="movie in movies" :movie="movie"></movie-card>
+    <div class="container">
+      <div class="movies-list">
+        <div class="columns is-multiline is-3 is-variable">
+          <movie-card v-for="movie in movies" :movie="movie"></movie-card>
+        </div>
       </div>
     </div>
   </div>
@@ -34,6 +36,7 @@
 
 <style lang="scss">
   body {
+    background-color: rgb(247, 247, 247);
     margin: 0;
     padding: 0;
   }
