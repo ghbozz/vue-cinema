@@ -9,6 +9,7 @@
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos sed, nesciunt facilis architecto eius id!
         </h2>
         <a class="button is-warning" @click="upComingMovies">Warning</a>
+        <input v-model="query" type="text" class="search" @keyup="search">
       </div>
     </div>
   </section>
@@ -16,9 +17,17 @@
 
 <script>
   export default {
+    data() {
+      return {
+        query: ''
+      }
+    },
     methods: {
       upComingMovies() {
         this.$parent.getUpcomingMovies();
+      },
+      search() {
+        this.$parent.search(this.query);
       }
     }
   }

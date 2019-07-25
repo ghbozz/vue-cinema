@@ -10,6 +10,11 @@
       <div class="back">
         <img :src="backdrop" alt="" class="backdrop-img">
         <div class="inner-card-container">
+          <div class="title-and-rating">
+            <span class="movie-rating">{{ movie.vote_average }}</span>
+            <span class="movie-title">{{ movie.title }}</span>
+          </div>
+          <span class="release-date">{{ movie.release_date.split('-')[0] }}</span>date
           <div class="synopsis">
             <h1 class="subtitle">Synopsis</h1>
             <p>{{ movie.overview }}</p>
@@ -51,15 +56,26 @@
     box-shadow: 0px 3px 5px rgba(20, 20, 20, 0.3);
   }
 
+  .title-and-rating {
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0px;
+  }
+
   .movie-title {
-    position: absolute;
-    width: 100%;
-    bottom: 20%;
-    padding: 20px 0px 20px 10%;
-    background-color: rgba(40, 40, 40, 0.4);
-    color: white;
-    font-size: 1.2em;
-    font-weight: bold;
+    text-align: right;
+    padding-left: 30px;
+  }
+
+  .movie-rating {
+    text-align: left;
+  }
+
+  .release-date {
+    color: black;
+    margin-bottom: 30px
   }
 
   .flip {
@@ -145,6 +161,6 @@
   }
 
   .synopsis {
-    /*padding: 20px;*/
+    margin-top: 20px;
   }
 </style>
