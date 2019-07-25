@@ -14,7 +14,7 @@
       </div>
     </div>
 
-    <div class="container">
+    <div class="container bottom-container">
       <div class="bottom-wrapper">
         <div class="poster-section">
           <img :src="'https://image.tmdb.org/t/p/w400' + movie.poster_path" alt="" class="movie-poster">
@@ -26,7 +26,7 @@
               <span v-for="genre in movie.genres">{{ genre.name }} / </span>
             </div>
             <div class="companies">
-              <div v-for="companie in movie.production_companies"><img class="companie" :src="'https://image.tmdb.org/t/p/original' + companie.logo_path"  alt="">
+              <div v-for="companie in movie.production_companies"><img class="companie" :src="'https://image.tmdb.org/t/p/w1280' + companie.logo_path"  alt="">
               </div>
             </div>
           </div>
@@ -55,6 +55,7 @@
 
 <style scoped>
   .movie-details {
+    overflow: hidden;
     height: 100vh;
     width: 100vw;
   }
@@ -89,7 +90,7 @@
 
   .movie-poster {
     position: absolute;
-    bottom: -100px;
+    bottom: 475px;
     width: 400px;
     border-radius: 10px;
     box-shadow: 0px 3px 5px rgba(20, 20, 20, 0.3);
@@ -122,8 +123,13 @@
   }
 
   .companie {
-    width: 120px;
+    width: 100px;
+    max-height: 100px;
     padding: 20px;
+  }
+
+  .bottom-container {
+    height: 100%;
   }
 
   .mb-10 {
