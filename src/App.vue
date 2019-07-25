@@ -2,7 +2,7 @@
   <div id="app">
     <banner></banner>
     <div class="movies-list">
-      <div class="columns is-multiline is-paddingless">
+      <div class="columns is-multiline">
         <movie-card v-for="movie in movies" :movie="movie"></movie-card>
       </div>
     </div>
@@ -23,7 +23,6 @@
         fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=902f906fbe883d89143b1deafb3ae4fe&language=en-US&page=1`)
           .then(response => response.json())
           .then(data => data.results.forEach((movie => this.movies.push(movie))))
-          console.log(this.movies)
       },
     },
     components: {
