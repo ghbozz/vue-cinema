@@ -17,15 +17,21 @@
     <div class="container">
       <div class="bottom-wrapper">
         <div class="poster-section">
-          <img :src="'https://image.tmdb.org/t/p/original' + movie.poster_path" alt="" class="movie-poster">
+          <img :src="'https://image.tmdb.org/t/p/w400' + movie.poster_path" alt="" class="movie-poster">
         </div>
 
         <div class="overview-section">
           <div class="genres mb-20">
-            <span v-for="genre in movie.genres">{{ genre.name }} / </span>
+            <div>
+              <span v-for="genre in movie.genres">{{ genre.name }} / </span>
+            </div>
+            <div class="companies">
+              <div v-for="companie in movie.production_companies"><img class="companie" :src="'https://image.tmdb.org/t/p/original' + companie.logo_path"  alt="">
+              </div>
+            </div>
           </div>
           <div class="synopsis">
-            <h3 class="mb-10">Synopsis</h3>
+            <h3 class="mb-10 subtitle">Synopsis</h3>
             <p>{{ movie.overview }}</p>
           </div>
         </div>
@@ -40,8 +46,7 @@
   export default {
     data() {
       return {
-        poster: `https://image.tmdb.org/t/p/w500${this.movie.poster_path}`,
-        backdrop: `https://image.tmdb.org/t/p/w500${this.movie.backdrop_path}`
+
       }
     },
     props: ['movie']
@@ -59,10 +64,11 @@
     height: 400px;
     background-position: center;
     background-size: cover;
+    box-shadow: 0px 3px 5px rgba(20, 20, 20, 0.3);
   }
 
   .banner-title {
-    padding-top: 50px;
+    padding-top: 200px;
     text-align: right;
   }
 
@@ -83,9 +89,10 @@
 
   .movie-poster {
     position: absolute;
-    bottom: -200px;
+    bottom: -100px;
     width: 400px;
     border-radius: 10px;
+    box-shadow: 0px 3px 5px rgba(20, 20, 20, 0.3);
   }
 
   .bottom-wrapper {
@@ -99,6 +106,24 @@
   .overview-section {
     width: 60%;
     margin-top: 50px;
+  }
+
+  .genres {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .companies {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 150px;
+  }
+
+  .companie {
+    width: 120px;
+    padding: 20px;
   }
 
   .mb-10 {

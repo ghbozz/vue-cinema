@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <banner></banner>
+    <navbar></navbar>
+    <banner v-if="!selectedMovie"></banner>
     <div class="container">
       <div v-if="!selectedMovie" class="movies-list">
         <div class="columns is-multiline is-3 is-variable">
@@ -8,7 +9,7 @@
         </div>
       </div>
     </div>
-      <div class="v-else">
+      <div v-if="selectedMovie">
         <movie-details :movie="selectedMovie"></movie-details>
       </div>
   </div>
@@ -19,6 +20,7 @@
   import MovieCard from './MovieCard.vue'
   import MovieDetails from './MovieDetails.vue'
   import Banner from './Banner.vue'
+  import Navbar from './Navbar.vue'
   export default {
     data () {
       return {
@@ -50,7 +52,8 @@
     components: {
       'banner': Banner,
       'movie-card': MovieCard,
-      'movie-details': MovieDetails
+      'movie-details': MovieDetails,
+      'navbar': Navbar
     }
   }
 </script>

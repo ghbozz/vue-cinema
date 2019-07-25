@@ -8,8 +8,6 @@
         <h2 class="subtitle">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos sed, nesciunt facilis architecto eius id!
         </h2>
-        <a class="button is-warning" @click="upComingMovies">Warning</a>
-        <input v-model="query" type="text" class="search" @keyup="search">
       </div>
     </div>
   </section>
@@ -17,25 +15,14 @@
 
 <script>
   export default {
-    data() {
-      return {
-        query: ''
-      }
-    },
-    methods: {
-      upComingMovies() {
-        this.$parent.getUpcomingMovies();
-      },
-      search() {
-        this.$parent.search(this.query);
-      }
-    }
+
   }
 </script>
 
 <style scoped>
   .hero {
     background-position: center;
+    box-shadow: 0px 3px 5px rgba(20, 20, 20, 0.3);
   }
 
   h1, h2 {
