@@ -12,6 +12,7 @@
 </template>
 
 <script>
+  import Keys from './config.js'
   import MovieCard from './MovieCard.vue'
   import Banner from './Banner.vue'
   export default {
@@ -23,13 +24,13 @@
     methods: {
       getUpcomingMovies() {
         this.movies = []
-        fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=902f906fbe883d89143b1deafb3ae4fe&language=en-US&page=1`)
+        fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${Keys.tmdb_key}&language=en-US&page=1`)
           .then(response => response.json())
           .then(data => data.results.forEach((movie => this.movies.push(movie))))
       },
       search(query) {
         this.movies = []
-        fetch(`https://api.themoviedb.org/3/search/movie?api_key=902f906fbe883d89143b1deafb3ae4fe&language=en-US&query=${query}&page=1&include_adult=false`)
+        fetch(`https://api.themoviedb.org/3/search/movie?api_key=${Keys.tmdb_key}&language=en-US&query=${query}&page=1&include_adult=false`)
           .then(response => response.json())
           .then(data => data.results.forEach((movie => this.movies.push(movie))))
           .then(console.log(this.movies))
