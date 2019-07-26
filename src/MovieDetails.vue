@@ -27,7 +27,10 @@
               <span v-for="genre in movie.genres">{{ genre.name }} / </span>
             </div>
             <div class="companies">
-              <div v-for="companie in movie.production_companies"><img class="companie" :src="'https://image.tmdb.org/t/p/w1280' + companie.logo_path"  alt="">
+              <div v-for="companie in movie.production_companies">
+                <div v-if="companie.logo_path">
+                  <img  class="companie" :src="'https://image.tmdb.org/t/p/w1280' + companie.logo_path"  alt="">
+                </div>
               </div>
             </div>
           </div>
@@ -64,7 +67,7 @@
     position: absolute;
     top: 100px;
     left: 100px;
-    font-size: 2em;
+    font-size: 3em;
     color: rgb(247, 247, 247);
     transition: all 0.3s ease-out;
   }

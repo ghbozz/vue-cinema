@@ -13,7 +13,9 @@
         <span class="subtitle"><strong>Cast</strong></span>
         <div class="columns casting-list">
           <div v-for="member in cast.cast.slice(0, 8)" class="member column">
-            <img :src="'https://image.tmdb.org/t/p/w185' + member.profile_path" alt="">
+            <div v-if="member.profile_path">
+              <img :src="'https://image.tmdb.org/t/p/w185' + member.profile_path" alt="">
+            </div>
           </div>
         </div>
       </div>
