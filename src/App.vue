@@ -10,7 +10,7 @@
       </div>
     </div>
       <div v-if="selectedMovie">
-        <movie-details :movie="selectedMovie"></movie-details>
+        <movie-details :movie="selectedMovie" :cast="cast"></movie-details>
       </div>
   </div>
 </template>
@@ -21,11 +21,14 @@
   import MovieDetails from './MovieDetails.vue'
   import Banner from './Banner.vue'
   import Navbar from './Navbar.vue'
+  import Cast from './Cast.vue'
+
   export default {
     data () {
       return {
         movies: [],
-        selectedMovie: null
+        selectedMovie: null,
+        cast: null
       }
     },
     methods: {
@@ -47,13 +50,20 @@
         fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${Keys.tmdb_key}&language=en-US`)
           .then(response => response.json())
           .then(data => this.selectedMovie = data)
+      },
+      getCast(id) {
+        this.cast = null
+        fetch(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${Keys.tmdb_key}`)
+          .then(response => response.json())
+          .then(data => this.cast = data)
       }
     },
     components: {
       'banner': Banner,
       'movie-card': MovieCard,
       'movie-details': MovieDetails,
-      'navbar': Navbar
+      'navbar': Navbar,
+      'cast': Cast
     }
   }
 </script>

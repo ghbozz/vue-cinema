@@ -21,7 +21,7 @@
         </div>
 
         <div class="overview-section">
-          <div class="genres mb-20">
+          <div class="genres mb-10">
             <div>
               <span v-for="genre in movie.genres">{{ genre.name }} / </span>
             </div>
@@ -30,10 +30,11 @@
               </div>
             </div>
           </div>
-          <div class="synopsis">
-            <h3 class="mb-10 subtitle">Synopsis</h3>
+          <div class="synopsis mb-10">
+            <h3 class="mb-10 subtitle"><strong>Synopsis</strong></h3>
             <p>{{ movie.overview }}</p>
           </div>
+          <cast :cast="cast"></cast>
         </div>
       </div>
     </div>
@@ -43,13 +44,17 @@
 </template>
 
 <script>
+  import Cast from './Cast.vue'
   export default {
     data() {
       return {
 
       }
     },
-    props: ['movie']
+    components: {
+      'cast': Cast
+    },
+    props: ['movie', 'cast']
   }
 </script>
 
@@ -90,7 +95,7 @@
 
   .movie-poster {
     position: absolute;
-    bottom: 475px;
+    bottom: 75px;
     width: 400px;
     border-radius: 10px;
     box-shadow: 0px 3px 5px rgba(20, 20, 20, 0.3);
@@ -106,13 +111,14 @@
 
   .overview-section {
     width: 60%;
-    margin-top: 50px;
+    margin-top: 20px;
   }
 
   .genres {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-top: -10px;
   }
 
   .companies {
@@ -122,6 +128,10 @@
     min-width: 150px;
   }
 
+  .synopsis {
+    margin-top: -10px;
+  }
+
   .companie {
     width: 100px;
     max-height: 100px;
@@ -129,7 +139,7 @@
   }
 
   .bottom-container {
-    height: 100%;
+    height: calc(870px - 400px);
   }
 
   .mb-10 {

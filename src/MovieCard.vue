@@ -41,6 +41,7 @@
       },
       selectMovie() {
         this.$parent.selectMovie(this.movie.id)
+        this.$parent.getCast(this.movie.id)
       }
     },
     props: ['movie']
