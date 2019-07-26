@@ -4,6 +4,7 @@
 
     <div class="movie-banner"
     v-bind:style="{ 'background-image': 'linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),' + 'url(' + 'https://image.tmdb.org/t/p/original' + movie.backdrop_path + ')' }">
+    <a href="#" class="back" @click="$parent.selectedMovie = null"><i class="fas fa-arrow-circle-left"></i></a>
       <div class="container">
         <div class="movie-banner-container">
           <div class="banner-title">
@@ -59,6 +60,19 @@
 </script>
 
 <style scoped>
+  .back {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    font-size: 2em;
+    color: rgb(247, 247, 247);
+    transition: all 0.3s ease-out;
+  }
+
+  .back:hover {
+    transform: scale(1.15);
+  }
+
   .movie-details {
     overflow: hidden;
     height: 100vh;
