@@ -25,11 +25,6 @@
 
 <script>
   export default {
-    methods: {
-      logCast() {
-        console.log(this.cast)
-      }
-    },
     props: ['cast']
   }
 </script>

@@ -42,9 +42,9 @@
       search(query) {
         this.movies = []
         this.selectedMovie = null
-        fetch(`https://api.themoviedb.org/3/search/movie?api_key=${Keys.tmdb_key}&language=en-US&query=${query}&page=1&include_adult=false`)
+        fetch(`https://api.themoviedb.org/3/search/movie?api_key=${Keys.tmdb_key}&language=en-US&query=${query}&page=1&include_adult=false&page=1`)
           .then(response => response.json())
-          .then(data => data.results.forEach((movie => this.movies.push(movie))))
+          .then(data => data.results.filter(x => x.poster_path).forEach((movie => this.movies.push(movie))))
       },
       selectMovie(id) {
         fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${Keys.tmdb_key}&language=en-US`)
@@ -56,7 +56,7 @@
         fetch(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${Keys.tmdb_key}`)
           .then(response => response.json())
           .then(data => this.cast = data)
-      }
+      },
     },
     components: {
       'banner': Banner,
