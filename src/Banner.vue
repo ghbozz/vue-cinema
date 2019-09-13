@@ -1,5 +1,5 @@
 <template>
-  <section class="hero is-large" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('./src/assets/banner-2.jpg');">
+  <section class="hero is-medium" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('./src/assets/banner-2.jpg');">
     <div class="hero-body">
       <div class="container">
         <h1 class="title">

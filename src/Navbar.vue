@@ -39,7 +39,8 @@
     width: 100%;
     background-color: rgba(0, 0, 0, 0);
     padding: 0px 50px;
-    height: 100px;
+    height: 75px;
+    transition: all .3s ease-out;
   }
 
   h1 {
@@ -64,5 +65,9 @@
     border-radius: 20px;
     color: rgb(247, 247, 247);
     background-color: rgba(20, 20, 20, 0.3);
+  }
+
+  .background {
+    background-color: rgb(8, 7, 29);
   }
 </style>
