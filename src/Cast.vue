@@ -4,8 +4,9 @@
       <div class="director">
         <span class="subtitle"><strong>Director</strong></span>
         <div class="columns director-list">
-          <div class="column member">
+          <div class="column member picture-n-name">
             <img :src="'https://image.tmdb.org/t/p/w185' + cast.crew[0].profile_path" alt="">
+            <span class="crew-name">{{ cast.crew[0].name }}</span>
           </div>
         </div>
       </div>
@@ -13,8 +14,9 @@
         <span class="subtitle"><strong>Cast</strong></span>
         <div class="columns casting-list">
           <div v-for="member in cast.cast.slice(0, 8)" class="member column">
-            <div v-if="member.profile_path">
+            <div v-if="member.profile_path" class="picture-n-name">
               <img :src="'https://image.tmdb.org/t/p/w185' + member.profile_path" alt="">
+              <span class="crew-name">{{ member.name }}</span>
             </div>
           </div>
         </div>
@@ -62,5 +64,31 @@
     width: 50px;
     object-fit: cover;
     box-shadow: 0px 3px 5px rgba(20, 20, 20, 0.3);
+  }
+
+  .picture-n-name {
+    position: relative;
+  }
+
+  .picture-n-name:hover .crew-name {
+    opacity: 1;
+  }
+
+  .crew-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: rgb(5, 6, 19);
+    padding: 5px;
+    border-radius: 3px;
+    opacity: 0;
+    width: 170px;
+    text-align: center;
+    position: absolute;
+    transform: translateX(-50%);
+    bottom: -75%;
+    left: 50%;
+    transition: all .3s ease-out;
   }
 </style>

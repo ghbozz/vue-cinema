@@ -4,6 +4,9 @@
     <banner v-if="!selectedMovie"></banner>
     <div class="container">
       <div v-if="!selectedMovie" class="movies-list">
+        <div v-if="movies.length == 0" class="empty-container">
+          <a class="main-btn" @click="getUpcomingMovies">Upcoming Movies</a>
+        </div>
         <div class="columns is-multiline is-3 is-variable">
           <movie-card v-for="movie in movies" :movie="movie"></movie-card>
         </div>
@@ -82,5 +85,20 @@
 
   button {
     margin-bottom: 50px;
+  }
+
+  .empty-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 353px);
+    overflow: hidden;
+  }
+
+  .main-btn {
+    padding: 15px 20px;
+    border-radius: 7px;
+    background-color: black;
+    color: white;
   }
 </style>

@@ -3,8 +3,9 @@
     <div class="hero-body">
       <div class="container">
         <h1 class="title">
-          Vue Movies
+          Vue: <br> Cinema
         </h1>
+        <br>
         <h2 class="subtitle">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit.
         </h2>

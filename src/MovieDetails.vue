@@ -170,4 +170,19 @@
   .mb-30 {
     margin-bottom: 30px;
   }
+
+  @media screen and (max-width: 767px) {
+    .movie-banner {
+      display: none;
+    }
+
+    .overview-section {
+      display: none;
+    }
+
+    .bottom-wrapper {
+      align-items: center;
+      justify-content: center;
+    }
+  }
 </style>

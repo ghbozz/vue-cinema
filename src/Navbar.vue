@@ -6,7 +6,6 @@
       </a>
     </div>
     <div class="nav-right">
-      <a class="button nav-btn" @click="upComingMovies">Upcoming Movies</a>
       <input v-model="query" type="text" class="search" @change="search">
     </div>
   </nav>
